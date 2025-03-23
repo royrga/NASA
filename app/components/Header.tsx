@@ -15,18 +15,15 @@ const Header = () => {
     )
 }; 
 
-export default Header;
-
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        padding: 10,
-    
+        paddingHorizontal: 20,
+        paddingTop: 20,
     },
     text: {
+        color: 'white',
         fontSize: 28,
-        fontWeight: 'bold',
         textAlign: 'left',
     },
     image: {
@@ -36,3 +33,6 @@ const styles = StyleSheet.create({
 
     },  
 });
+
+export default Header;
+
