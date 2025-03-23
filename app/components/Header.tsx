@@ -12,7 +12,7 @@ const Header = () => {
             </View>
             
         </View>
-    )
+    );
 }; 
 
 const styles = StyleSheet.create({
