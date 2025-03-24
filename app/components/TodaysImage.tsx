@@ -1,45 +1,52 @@
 import React, {FC} from "react";
-import { View, Text, StyleSheet, Image, Button} from "react-native"
+import { View, Text, StyleSheet, Image, Button, ScrollView} from "react-native"
 import { Link } from "expo-router";
 
 import  {PostImage}  from "../../types";
 
 
-const TodaysImage: FC<PostImage> = ({date,title,url}) => {
+const TodaysImage: FC<PostImage> = ({date,title,url,explanation}) => {
 
     return (
         <View style = {styles.container}>
-            <View style={styles.imageContainer} >
+            {/* <View style={styles.imageContainer}> */}
                 <Image source={{uri: url}} style={styles.image} />
-            </View>
+            {/* </View> */}
             <Text style={styles.title} >{title}</Text>
             <Text style={styles.date}>{date}</Text>
             <View style={styles.buttonContainer}>
                 {/* <Button  title="View" onPress={handleViewPress} /> */}
-                <Link href='/detail' style={styles.viewButton}>View</Link>
-            </View>
+                <Link href={{
+                      pathname:'/detail',
+                      params: {title,date,url,explanation}
+                      }} 
+                      style={styles.viewButton} >
+                    View
+                </Link>
+            </View> 
         </View>
     )
 };
 
 const styles = StyleSheet.create({
     container: {
+        height:'50%',
+        paddingHorizontal:10,
+        paddingVertical:10,
         backgroundColor: '#2c449d',
-        marginVertical: 16,
-        borderRadius: 28,
-        marginHorizontal:16,
-        padding:16,
-        borderWidth: .5,
-        borderColor: 'white',
+        marginHorizontal:10,
+        marginTop:15,
+        borderRadius: 15,
     },
     imageContainer: {
-
+       alignItems: 'center',
     },
     image: {
-        width: '100%',
-        height: 190,
-        borderWidth: 1,
-        borderRadius: 28
+        width:'100%',
+        height:'65%',
+        borderWidth: 2,
+        borderRadius: 15,
+        borderColor: 'white',
     },
     title: {
         color: 'white',
@@ -52,12 +59,18 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
     buttonContainer:{
-        alignItems: 'flex-end'
+        alignItems: 'flex-end',
+
     },
     viewButton: {
-        color: 'red',
-        fontWeight: 'bold',
+        backgroundColor: 'rgba(7,26,93,255)',
+        color: 'white',
+        fontStyle: 'italic',
         fontSize: 18,
+        borderWidth:2,
+        borderRadius: 10,
+        borderColor : 'red',
+        padding:5, 
     }
 });
 

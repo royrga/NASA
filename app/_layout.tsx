@@ -2,7 +2,7 @@ import { Stack } from "expo-router";
 
 export default function RootLayout() {
   return  (
-      <Stack>
+      <Stack >
         <Stack.Screen 
         name="(Home)" 
         options={{
@@ -24,8 +24,12 @@ export default function RootLayout() {
 const screeOptions =  {
   headerTitleStyle:{
     color:'white',
+    fontSize: 20,
+
   },
+  headerTintColor: 'white',
   headerStyle:{
-    backgroundColor:'rgba(7,26,93,255)'
+    backgroundColor:'rgba(7,26,93,255)',
+
   },
 };
