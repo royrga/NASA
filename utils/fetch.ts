@@ -1,5 +1,4 @@
-const API_KEY='dYot7lHKkzxtS2X6S3KpW46DDTNVYVbEJfgzW7et';
-const API_URL='https://api.nasa.gov/planetary/apod';
+import { API_KEY, API_URL } from "./key";
 
 export default async (urlParams?: string) => {
     try {
